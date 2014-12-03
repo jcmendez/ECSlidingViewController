@@ -189,7 +189,7 @@
 }
 
 - (BOOL)shouldAutorotate {
-    return self.currentOperation == ECSlidingViewControllerOperationNone;
+    return self.currentOperation == ECSlidingViewControllerOperationNone && UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
 }
 
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods {
@@ -860,7 +860,7 @@
     self.transitionInProgress        = NO;
     self.view.userInteractionEnabled = YES;
     [UIViewController attemptRotationToDeviceOrientation];
-    [self setNeedsStatusBarAppearanceUpdate];
+//    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (UIViewController *)viewControllerForKey:(NSString *)key {
